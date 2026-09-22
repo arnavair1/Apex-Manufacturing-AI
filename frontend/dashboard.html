@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Apex Manufacturing AI</title>
+
+    <link
+        rel="stylesheet"
+        href="dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <header class="header">
+
+            <div>
+
+                <h1>Apex Manufacturing AI</h1>
+
+                <p>
+                    Manufacturing Intelligence Dashboard
+                </p>
+
+            </div>
+
+
+            <div
+                id="api-status"
+                class="status checking"
+            >
+                API: Checking...
+            </div>
+
+        </header>
+
+
+        <main>
+
+            <section class="card">
+
+                <h2>Ask Apex AI</h2>
+
+                <p class="description">
+
+                    Ask questions about production,
+                    machines, failures, downtime,
+                    quality, sensors, maintenance,
+                    or manufacturing operations.
+
+                </p>
+
+
+                <textarea
+                    id="question"
+                    placeholder="Example: Which machines need attention?"
+                ></textarea>
+
+
+                <div class="quick-questions">
+
+                    <button
+                        class="quick-button"
+                        data-question="Which machines need attention?"
+                    >
+                        Machines needing attention
+                    </button>
+
+
+                    <button
+                        class="quick-button"
+                        data-question="What is the overall production efficiency?"
+                    >
+                        Production efficiency
+                    </button>
+
+
+                    <button
+                        class="quick-button"
+                        data-question="Investigate MCH-004-01-01"
+                    >
+                        Investigate machine
+                    </button>
+
+
+                    <button
+                        class="quick-button"
+                        data-question="What should we check when a machine has high vibration?"
+                    >
+                        High vibration
+                    </button>
+
+                </div>
+
+
+                <button
+                    id="ask-button"
+                    class="ask-button"
+                >
+                    Ask Apex AI
+                </button>
+
+            </section>
+
+
+            <section class="card answer-card">
+
+                <div class="answer-title">
+
+                    <h2>AI Response</h2>
+
+                    <span
+                        id="loading"
+                        class="loading hidden"
+                    >
+                        Thinking...
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="answer"
+                    class="answer"
+                >
+                    Your manufacturing analysis
+                    will appear here.
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <footer>
+
+            <p>
+                Apex Manufacturing AI
+                &nbsp;•&nbsp;
+                Analytics
+                &nbsp;•&nbsp;
+                ML
+                &nbsp;•&nbsp;
+                RAG
+                &nbsp;•&nbsp;
+                Groq
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>

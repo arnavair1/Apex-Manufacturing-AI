@@ -1,0 +1,11 @@
+product_id,product_name,product_category,standard_cycle_time_seconds
+PROD-001,Component Product 1,Transmission,153
+PROD-002,Component Product 2,Engine,164
+PROD-003,Component Product 3,Electrical,51
+PROD-004,Component Product 4,Transmission,113
+PROD-005,Component Product 5,Transmission,46
+PROD-006,Component Product 6,Electrical,130
+PROD-007,Component Product 7,Engine,72
+PROD-008,Component Product 8,Engine,128
+PROD-009,Component Product 9,Electrical,139
+PROD-010,Component Product 10,Structural,145

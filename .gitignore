@@ -1,0 +1,16 @@
+.env
+
+__pycache__/
+*.pyc
+
+.pytest_cache/
+
+.DS_Store
+
+*.db
+*.sqlite
+*.sqlite3
+
+.vscode/
+
+frontend/node_modules/

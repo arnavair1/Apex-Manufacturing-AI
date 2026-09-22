@@ -1,0 +1,65 @@
+failure_id,machine_id,failure_date,failure_type,severity,failure_description
+FAIL-00001,MCH-001-01-01,2026-01-21,Overheating,Medium,Synthetic machine failure generated for testing.
+FAIL-00002,MCH-001-01-02,2026-01-01,Electrical Fault,Medium,Synthetic machine failure generated for testing.
+FAIL-00003,MCH-001-01-02,2026-01-09,Excessive Vibration,Critical,Synthetic machine failure generated for testing.
+FAIL-00004,MCH-001-01-03,2026-01-25,Electrical Fault,High,Synthetic machine failure generated for testing.
+FAIL-00005,MCH-001-01-04,2026-01-17,Overheating,Critical,Synthetic machine failure generated for testing.
+FAIL-00006,MCH-001-02-02,2026-01-02,Excessive Vibration,High,Synthetic machine failure generated for testing.
+FAIL-00007,MCH-001-02-03,2026-01-18,Electrical Fault,Medium,Synthetic machine failure generated for testing.
+FAIL-00008,MCH-001-02-03,2026-01-28,Overheating,High,Synthetic machine failure generated for testing.
+FAIL-00009,MCH-001-02-04,2026-01-05,Overheating,Critical,Synthetic machine failure generated for testing.
+FAIL-00010,MCH-001-02-04,2026-01-09,Excessive Vibration,Medium,Synthetic machine failure generated for testing.
+FAIL-00011,MCH-001-02-04,2026-01-18,Overheating,High,Synthetic machine failure generated for testing.
+FAIL-00012,MCH-001-02-04,2026-01-22,Electrical Fault,Medium,Synthetic machine failure generated for testing.
+FAIL-00013,MCH-001-03-01,2026-01-15,Electrical Fault,High,Synthetic machine failure generated for testing.
+FAIL-00014,MCH-001-03-02,2026-01-16,Mechanical Wear,High,Synthetic machine failure generated for testing.
+FAIL-00015,MCH-001-03-03,2026-01-21,Excessive Vibration,Critical,Synthetic machine failure generated for testing.
+FAIL-00016,MCH-001-03-04,2026-01-08,Overheating,High,Synthetic machine failure generated for testing.
+FAIL-00017,MCH-001-03-04,2026-01-15,Overheating,Critical,Synthetic machine failure generated for testing.
+FAIL-00018,MCH-001-03-04,2026-01-21,Overheating,Critical,Synthetic machine failure generated for testing.
+FAIL-00019,MCH-002-01-01,2026-01-09,Electrical Fault,High,Synthetic machine failure generated for testing.
+FAIL-00020,MCH-002-01-01,2026-01-14,Overheating,High,Synthetic machine failure generated for testing.
+FAIL-00021,MCH-002-01-04,2026-01-22,Excessive Vibration,High,Synthetic machine failure generated for testing.
+FAIL-00022,MCH-002-02-01,2026-01-05,Electrical Fault,High,Synthetic machine failure generated for testing.
+FAIL-00023,MCH-002-02-01,2026-01-19,Excessive Vibration,Critical,Synthetic machine failure generated for testing.
+FAIL-00024,MCH-002-02-02,2026-01-25,Electrical Fault,High,Synthetic machine failure generated for testing.
+FAIL-00025,MCH-002-02-03,2026-01-09,Excessive Vibration,Medium,Synthetic machine failure generated for testing.
+FAIL-00026,MCH-002-03-03,2026-01-14,Excessive Vibration,Medium,Synthetic machine failure generated for testing.
+FAIL-00027,MCH-002-03-03,2026-01-16,Mechanical Wear,High,Synthetic machine failure generated for testing.
+FAIL-00028,MCH-002-03-04,2026-01-21,Electrical Fault,Medium,Synthetic machine failure generated for testing.
+FAIL-00029,MCH-002-03-04,2026-01-28,Mechanical Wear,Medium,Synthetic machine failure generated for testing.
+FAIL-00030,MCH-003-01-01,2026-01-04,Excessive Vibration,Medium,Synthetic machine failure generated for testing.
+FAIL-00031,MCH-003-01-02,2026-01-03,Mechanical Wear,Medium,Synthetic machine failure generated for testing.
+FAIL-00032,MCH-003-01-02,2026-01-14,Electrical Fault,Medium,Synthetic machine failure generated for testing.
+FAIL-00033,MCH-003-01-03,2026-01-29,Mechanical Wear,High,Synthetic machine failure generated for testing.
+FAIL-00034,MCH-003-01-04,2026-01-25,Mechanical Wear,Medium,Synthetic machine failure generated for testing.
+FAIL-00035,MCH-003-02-01,2026-01-10,Excessive Vibration,Medium,Synthetic machine failure generated for testing.
+FAIL-00036,MCH-003-02-02,2026-01-29,Excessive Vibration,Medium,Synthetic machine failure generated for testing.
+FAIL-00037,MCH-003-02-03,2026-01-08,Electrical Fault,Medium,Synthetic machine failure generated for testing.
+FAIL-00038,MCH-003-02-03,2026-01-22,Overheating,High,Synthetic machine failure generated for testing.
+FAIL-00039,MCH-003-02-04,2026-01-03,Electrical Fault,High,Synthetic machine failure generated for testing.
+FAIL-00040,MCH-003-02-04,2026-01-22,Excessive Vibration,High,Synthetic machine failure generated for testing.
+FAIL-00041,MCH-003-02-04,2026-01-28,Mechanical Wear,Critical,Synthetic machine failure generated for testing.
+FAIL-00042,MCH-003-03-03,2026-01-05,Overheating,High,Synthetic machine failure generated for testing.
+FAIL-00043,MCH-003-03-03,2026-01-17,Excessive Vibration,High,Synthetic machine failure generated for testing.
+FAIL-00044,MCH-003-03-03,2026-01-25,Overheating,Medium,Synthetic machine failure generated for testing.
+FAIL-00045,MCH-003-03-04,2026-01-05,Overheating,Medium,Synthetic machine failure generated for testing.
+FAIL-00046,MCH-003-03-04,2026-01-09,Mechanical Wear,High,Synthetic machine failure generated for testing.
+FAIL-00047,MCH-004-01-01,2026-01-07,Excessive Vibration,High,Synthetic machine failure generated for testing.
+FAIL-00048,MCH-004-01-01,2026-01-15,Excessive Vibration,Medium,Synthetic machine failure generated for testing.
+FAIL-00049,MCH-004-01-01,2026-01-28,Electrical Fault,Critical,Synthetic machine failure generated for testing.
+FAIL-00050,MCH-004-01-03,2026-01-20,Excessive Vibration,Medium,Synthetic machine failure generated for testing.
+FAIL-00051,MCH-004-01-04,2026-01-17,Excessive Vibration,High,Synthetic machine failure generated for testing.
+FAIL-00052,MCH-004-02-02,2026-01-26,Excessive Vibration,Critical,Synthetic machine failure generated for testing.
+FAIL-00053,MCH-004-02-03,2026-01-15,Mechanical Wear,Medium,Synthetic machine failure generated for testing.
+FAIL-00054,MCH-004-02-04,2026-01-11,Mechanical Wear,Medium,Synthetic machine failure generated for testing.
+FAIL-00055,MCH-004-03-01,2026-01-15,Mechanical Wear,Medium,Synthetic machine failure generated for testing.
+FAIL-00056,MCH-004-03-04,2026-01-10,Excessive Vibration,Critical,Synthetic machine failure generated for testing.
+FAIL-00057,MCH-004-03-04,2026-01-15,Overheating,Medium,Synthetic machine failure generated for testing.
+FAIL-00058,MCH-004-03-04,2026-01-19,Mechanical Wear,High,Synthetic machine failure generated for testing.
+FAIL-00059,MCH-005-01-04,2026-01-06,Electrical Fault,High,Synthetic machine failure generated for testing.
+FAIL-00060,MCH-005-02-01,2026-01-16,Excessive Vibration,Medium,Synthetic machine failure generated for testing.
+FAIL-00061,MCH-005-02-03,2026-01-22,Electrical Fault,High,Synthetic machine failure generated for testing.
+FAIL-00062,MCH-005-03-03,2026-01-03,Mechanical Wear,Medium,Synthetic machine failure generated for testing.
+FAIL-00063,MCH-005-03-03,2026-01-06,Mechanical Wear,Medium,Synthetic machine failure generated for testing.
+FAIL-00064,MCH-005-03-04,2026-01-10,Electrical Fault,Medium,Synthetic machine failure generated for testing.

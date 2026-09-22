@@ -1,0 +1,16 @@
+line_id,factory_id,line_name,line_type
+LINE-001-01,FAC-001,Production Line 1-1,Assembly
+LINE-001-02,FAC-001,Production Line 1-2,Assembly
+LINE-001-03,FAC-001,Production Line 1-3,Assembly
+LINE-002-01,FAC-002,Production Line 2-1,Assembly
+LINE-002-02,FAC-002,Production Line 2-2,Assembly
+LINE-002-03,FAC-002,Production Line 2-3,Assembly
+LINE-003-01,FAC-003,Production Line 3-1,Assembly
+LINE-003-02,FAC-003,Production Line 3-2,Assembly
+LINE-003-03,FAC-003,Production Line 3-3,Assembly
+LINE-004-01,FAC-004,Production Line 4-1,Assembly
+LINE-004-02,FAC-004,Production Line 4-2,Assembly
+LINE-004-03,FAC-004,Production Line 4-3,Assembly
+LINE-005-01,FAC-005,Production Line 5-1,Assembly
+LINE-005-02,FAC-005,Production Line 5-2,Assembly
+LINE-005-03,FAC-005,Production Line 5-3,Assembly

@@ -1,0 +1,9 @@
+supplier_id,supplier_name,supplier_category,supplier_rating
+SUP-001,Apex Supplier 1,Electronics,4.79
+SUP-002,Apex Supplier 2,Metal,3.08
+SUP-003,Apex Supplier 3,Metal,3.89
+SUP-004,Apex Supplier 4,Metal,3.43
+SUP-005,Apex Supplier 5,Electronics,4.52
+SUP-006,Apex Supplier 6,Packaging,3.29
+SUP-007,Apex Supplier 7,Metal,3.23
+SUP-008,Apex Supplier 8,Packaging,3.79
