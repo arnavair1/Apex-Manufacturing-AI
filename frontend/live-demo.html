@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Apex Manufacturing AI — Live Demo</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Helvetica, Arial, sans-serif;
+            background: #0b1020;
+            color: #f5f7ff;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: min(1000px, 92%);
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .back {
+            display: inline-block;
+            color: #9ca3ff;
+            text-decoration: none;
+            margin-bottom: 25px;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: clamp(32px, 5vw, 54px);
+        }
+
+        .subtitle {
+            color: #aeb7d0;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(34, 197, 94, 0.12);
+            color: #86efac;
+            font-size: 14px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+        }
+
+        .chat-card {
+            background: #11182d;
+            border: 1px solid #26304a;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .chat-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid #26304a;
+        }
+
+        .chat-header h2 {
+            margin: 0 0 6px;
+            font-size: 20px;
+        }
+
+        .chat-header p {
+            margin: 0;
+            color: #8f9bb8;
+            font-size: 14px;
+        }
+
+        .messages {
+            min-height: 360px;
+            max-height: 560px;
+            overflow-y: auto;
+            padding: 24px;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            display: flex;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .bubble {
+            max-width: 80%;
+            padding: 14px 16px;
+            border-radius: 14px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .message.agent .bubble {
+            background: #19223b;
+            color: #dfe5f7;
+        }
+
+        .message.user .bubble {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .welcome {
+            color: #9ca8c3;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .welcome h3 {
+            color: #f5f7ff;
+            margin-bottom: 10px;
+        }
+
+        .input-area {
+            padding: 20px;
+            border-top: 1px solid #26304a;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        textarea {
+            flex: 1;
+            min-height: 58px;
+            max-height: 160px;
+            resize: vertical;
+            border: 1px solid #34405f;
+            border-radius: 12px;
+            background: #0c1325;
+            color: #f5f7ff;
+            padding: 15px;
+            font-family: inherit;
+            font-size: 15px;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #6366f1;
+        }
+
+        button {
+            align-self: stretch;
+            border: none;
+            border-radius: 12px;
+            padding: 0 24px;
+            background: #4f46e5;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #4338ca;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .example {
+            border: 1px solid #303b59;
+            background: #151d32;
+            color: #aeb9d2;
+            border-radius: 999px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .example:hover {
+            border-color: #6366f1;
+            color: white;
+        }
+
+        .architecture {
+            margin-top: 30px;
+            padding: 24px;
+            background: #11182d;
+            border: 1px solid #26304a;
+            border-radius: 20px;
+        }
+
+        .architecture h2 {
+            margin-top: 0;
+        }
+
+        .flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .flow-item {
+            padding: 10px 14px;
+            background: #19223b;
+            border: 1px solid #303b59;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        .arrow {
+            color: #6366f1;
+            font-weight: bold;
+        }
+
+        .error {
+            color: #fca5a5;
+        }
+
+        @media (max-width: 650px) {
+            .container {
+                padding: 25px 0;
+            }
+
+            .input-row {
+                flex-direction: column;
+            }
+
+            button {
+                min-height: 50px;
+            }
+
+            .bubble {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <a
+            class="back"
+            href="https://arnavair1.github.io/Apex-Manufacturing-AI/"
+        >
+            ← Back to Project
+        </a>
+
+        <h1>Apex Manufacturing AI</h1>
+
+        <div class="subtitle">
+            Live Natural-Language Manufacturing Agent
+        </div>
+
+        <div class="status">
+            <span class="dot"></span>
+            AI Agent Demo
+        </div>
+
+    </div>
+
+
+    <div class="chat-card">
+
+        <div class="chat-header">
+            <h2>Ask a manufacturing question</h2>
+
+            <p>
+                The agent can analyze production, failures, downtime,
+                quality, sensors, ML predictions, and manufacturing knowledge.
+            </p>
+        </div>
+
+
+        <div
+            id="messages"
+            class="messages"
+        >
+
+            <div
+                id="welcome"
+                class="welcome"
+            >
+                <h3>Ask the Apex Manufacturing AI Agent</h3>
+
+                <p>
+                    Try one of the example questions below,
+                    or type your own manufacturing question.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="input-area">
+
+            <div class="input-row">
+
+                <textarea
+                    id="messageInput"
+                    placeholder="Ask something like: Which machines need attention?"
+                ></textarea>
+
+                <button
+                    id="sendButton"
+                    onclick="sendMessage()"
+                >
+                    Ask Agent
+                </button>
+
+            </div>
+
+
+            <div class="examples">
+
+                <button
+                    class="example"
+                    onclick="useExample('Which machines need attention?')"
+                >
+                    Which machines need attention?
+                </button>
+
+                <button
+                    class="example"
+                    onclick="useExample('Investigate MCH-004-01-01')"
+                >
+                    Investigate MCH-004-01-01
+                </button>
+
+                <button
+                    class="example"
+                    onclick="useExample('What is the overall production efficiency?')"
+                >
+                    Overall production efficiency?
+                </button>
+
+                <button
+                    class="example"
+                    onclick="useExample('Show me the machines with recent failures')"
+                >
+                    Recent machine failures
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="architecture">
+
+        <h2>How the live agent works</h2>
+
+        <div class="flow">
+
+            <div class="flow-item">
+                User Question
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+            <div class="flow-item">
+                FastAPI
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+            <div class="flow-item">
+                Groq Agent
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+            <div class="flow-item">
+                Manufacturing Tools
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+            <div class="flow-item">
+                SQL + ML + RAG
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /*
+        IMPORTANT:
+        After deploying the FastAPI backend to Render,
+        replace this URL with your Render URL.
+
+        Example:
+
+        const API_URL =
+            "https://apex-manufacturing-ai.onrender.com";
+    */
+
+    const API_URL =
+        "YOUR_RENDER_BACKEND_URL";
+
+
+    const messagesContainer =
+        document.getElementById("messages");
+
+    const messageInput =
+        document.getElementById("messageInput");
+
+    const sendButton =
+        document.getElementById("sendButton");
+
+
+    function useExample(question) {
+
+        messageInput.value = question;
+
+        messageInput.focus();
+
+    }
+
+
+    function addMessage(role, text) {
+
+        const welcome =
+            document.getElementById("welcome");
+
+        if (welcome) {
+            welcome.remove();
+        }
+
+
+        const message =
+            document.createElement("div");
+
+        message.className =
+            `message ${role}`;
+
+
+        const bubble =
+            document.createElement("div");
+
+        bubble.className =
+            "bubble";
+
+        bubble.textContent =
+            text;
+
+
+        message.appendChild(bubble);
+
+        messagesContainer.appendChild(message);
+
+        messagesContainer.scrollTop =
+            messagesContainer.scrollHeight;
+
+    }
+
+
+    async function sendMessage() {
+
+        const message =
+            messageInput.value.trim();
+
+
+        if (!message) {
+            return;
+        }
+
+
+        if (
+            API_URL === "YOUR_RENDER_BACKEND_URL"
+        ) {
+
+            addMessage(
+                "agent",
+                "The live backend has not been connected yet. Deploy the FastAPI backend to Render first."
+            );
+
+            return;
+
+        }
+
+
+        addMessage(
+            "user",
+            message
+        );
+
+
+        messageInput.value = "";
+
+        sendButton.disabled = true;
+
+        sendButton.textContent =
+            "Thinking...";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    `${API_URL}/chat`,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            message: message
+                        })
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    data.detail ||
+                    "The API returned an error."
+                );
+
+            }
+
+
+            addMessage(
+                "agent",
+                data.response
+            );
+
+
+        } catch (error) {
+
+            addMessage(
+                "agent",
+                `Unable to reach the AI backend.\n\n${error.message}`
+            );
+
+        } finally {
+
+            sendButton.disabled =
+                false;
+
+            sendButton.textContent =
+                "Ask Agent";
+
+        }
+
+    }
+
+
+    messageInput.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter" &&
+                !event.shiftKey
+            ) {
+
+                event.preventDefault();
+
+                sendMessage();
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>

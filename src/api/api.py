@@ -1,4 +1,6 @@
-from fastapi import FastAPI
+import os
+
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -7,70 +9,71 @@ from src.agents.groq_agent import run_agent
 
 app = FastAPI(
     title="Apex Manufacturing AI",
-    description=(
-        "AI-powered manufacturing analytics "
-        "and natural-language manufacturing agent."
-    ),
+    description="AI-powered manufacturing intelligence API",
     version="1.0.0",
 )
 
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://127.0.0.1:5500",
-        "http://localhost:5500",
-        "http://127.0.0.1:5501",
-        "http://localhost:5501",
-    ],
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 
 class ChatRequest(BaseModel):
-    question: str
-
-
-class ChatResponse(BaseModel):
-    question: str
-    answer: str
+    message: str
 
 
 @app.get("/")
 def root():
-
     return {
         "name": "Apex Manufacturing AI",
-        "status": "running",
-        "version": "1.0.0",
+        "status": "online",
+        "message": "Manufacturing AI API is running.",
     }
 
 
 @app.get("/health")
 def health():
-
     return {
         "status": "healthy",
     }
 
 
-@app.post("/chat", response_model=ChatResponse)
+@app.post("/chat")
 def chat(request: ChatRequest):
+    message = request.message.strip()
 
-    question = request.question.strip()
-
-    if not question:
-
-        return ChatResponse(
-            question="",
-            answer="Please provide a manufacturing question.",
+    if not message:
+        raise HTTPException(
+            status_code=400,
+            detail="Message cannot be empty.",
         )
 
-    answer = run_agent(question)
+    try:
+        response = run_agent(message)
 
-    return ChatResponse(
-        question=question,
-        answer=answer,
+        return {
+            "response": response,
+        }
+
+    except Exception as exc:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Agent error: {str(exc)}",
+        )
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    port = int(os.environ.get("PORT", "8000"))
+
+    uvicorn.run(
+        "src.api.api:app",
+        host="0.0.0.0",
+        port=port,
+        reload=False,
     )
